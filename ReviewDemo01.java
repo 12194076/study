@@ -1,22 +1,22 @@
 import java.util.Scanner;
 
-//v0.4 차이점 : 단 한번이라도 f가 되면 포문 탈출해서 판단
+//v0.5 차이점 : 포문을 와일문으로 변경(뭐가 더 좋다 의미는 아님)
 public class ReviewDemo01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int number = sc.nextInt();
         boolean isPrime = true;
-
-        for (int k = 2; k < number; k++) { // K가 3이 되면 나머지가 0이니까 브렉을 써서 포문(반복) 종료하고 이프로
-            if (number % k == 0) { //소수면 의미없지만 소수가 아니라면 수가 클수록 엄청난 반복 횟수를 줄여주니까 브렉을!
+// 아래 웨일은 포문과 다르게 조건만 넣을 수 있고 변수 선언 및 증감식은 밖으로 빼줘야한다
+        int k = 2;
+        while ( k < number) {
+            if (number % k == 0) {
                 isPrime = false;
-                break; // 브렉을 안넣어도 돌아가지만 속도적으로는 돌리는게 더 빠르다 // 110까지 가냐 3이전까지만 가냐
-                // 첫 번째 약수가 발견되면 for문 탈출
+                break;
             }
-            System.out.println(k); // K가 3이 되는순간 약수가 3이니까 그 아래 수 의미가 없으니 멈추면 더 빨라진다 결론은 브렉을 쓰자
+            //System.out.println(k);
+            k++;
         }
-
 
         if(isPrime)
             System.out.println(number + "은(는) 소수!");
@@ -24,6 +24,33 @@ public class ReviewDemo01 {
             System.out.println(number + "은(는) 소수가 아닙니다!");
     }
 }
+
+//import java.util.Scanner;
+//
+////v0.4 차이점 : 단 한번이라도 f가 되면 포문 탈출해서 판단
+//public class ReviewDemo01 {
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//
+//        int number = sc.nextInt();
+//        boolean isPrime = true;
+//
+//        for (int k = 2; k < number; k++) { // K가 3이 되면 나머지가 0이니까 브렉을 써서 포문(반복) 종료하고 이프로
+//            if (number % k == 0) { //소수면 의미없지만 소수가 아니라면 수가 클수록 엄청난 반복 횟수를 줄여주니까 브렉을!
+//                isPrime = false;
+//                break; // 브렉을 안넣어도 돌아가지만 속도적으로는 돌리는게 더 빠르다 // 110까지 가냐 3이전까지만 가냐
+//                // 첫 번째 약수가 발견되면 for문 탈출
+//            }
+//            System.out.println(k); // K가 3이 되는순간 약수가 3이니까 그 아래 수 의미가 없으니 멈추면 더 빨라진다 결론은 브렉을 쓰자
+//        }
+//
+//
+//        if(isPrime)
+//            System.out.println(number + "은(는) 소수!");
+//        else
+//            System.out.println(number + "은(는) 소수가 아닙니다!");
+//    }
+//}
 
 //import java.util.Scanner;
 //
