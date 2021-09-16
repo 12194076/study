@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-//v0.5 차이점 : 포문을 와일문으로 변경(뭐가 더 좋다 의미는 아님)
+//v0.6 차이점 : 이프 엘스를 간단하게 삼항조건연산자 사용해서 변경(가독성이 불리할수있으나 기호에 맞게 )
 public class ReviewDemo01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -17,13 +17,39 @@ public class ReviewDemo01 {
             //System.out.println(k);
             k++;
         }
+// 삼항조건연산자를 통해 기존 이프문을 한줄로 표시한다 ( ?와 :로 구성 )
 
-        if(isPrime)
-            System.out.println(number + "은(는) 소수!");
-        else
-            System.out.println(number + "은(는) 소수가 아닙니다!");
+        System.out.println(number + (isPrime ? "은(는) 소수!" : "은(는) 소수아님!"));
+
     }
 }
+
+//import java.util.Scanner;
+//
+////v0.5 차이점 : 포문을 와일문으로 변경(뭐가 더 좋다 의미는 아님)
+//public class ReviewDemo01 {
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//
+//        int number = sc.nextInt();
+//        boolean isPrime = true;
+//// 아래 웨일은 포문과 다르게 조건만 넣을 수 있고 변수 선언 및 증감식은 밖으로 빼줘야한다
+//        int k = 2;
+//        while ( k < number) {
+//            if (number % k == 0) {
+//                isPrime = false;
+//                break;
+//            }
+//            //System.out.println(k);
+//            k++;
+//        }
+//
+//        if(isPrime)
+//            System.out.println(number + "은(는) 소수!");
+//        else
+//            System.out.println(number + "은(는) 소수가 아닙니다!");
+//    }
+//}
 
 //import java.util.Scanner;
 //
