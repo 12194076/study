@@ -1,20 +1,22 @@
 import java.util.Scanner;
 
-//v0.3 차이점 : 가독성이 좋아진 버전 int 빼고 t/f 인식하는 불린사용
+//v0.4 차이점 : 단 한번이라도 f가 되면 포문 탈출해서 판단
 public class ReviewDemo01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int number = sc.nextInt();
-        boolean isPrime = true; //is는 비동사라서 참 거짓을 나타낸다 ex: he is 학생 -> 교수니까 노노
-                for (int k = 2; k < number; k++) { // 1과 같다를 제거했으니 0이 유지되면 소수인 것
-            if (number % k == 0)//입력된 수를 k로 나누었을 떄 나머지가 0인경우 증, 약수
-               // cnt++; //카운트가 1일때와 자기수일때만 증가하니까 카운트가 2인 경우 소수이고 3이상이면 소수 x
-isPrime = false; // 위 트루가 유지되면 소수인거고 한번이라도 나누어떨어지면 펄스로 바뀌는 것
-                    //카운트는 대입과 증감연산 cnt = cnt + 1 즉 불린을 하면 대입연산만 쓰니까 가벼워진다
-                }
-       // if (cnt == 0) //카운트가 0이 유지되면 true
-       // if (isPrime == true) // isPrime 변수 값이 true면으로 해석되고 더 줄일 수 있다.
+        boolean isPrime = true;
+
+        for (int k = 2; k < number; k++) { // K가 3이 되면 나머지가 0이니까 브렉을 써서 포문(반복) 종료하고 이프로
+            if (number % k == 0) { //소수면 의미없지만 소수가 아니라면 수가 클수록 엄청난 반복 횟수를 줄여주니까 브렉을!
+                isPrime = false;
+                break; // 브렉을 안넣어도 돌아가지만 속도적으로는 돌리는게 더 빠르다 // 110까지 가냐 3이전까지만 가냐
+                // 첫 번째 약수가 발견되면 for문 탈출
+            }
+            System.out.println(k); // K가 3이 되는순간 약수가 3이니까 그 아래 수 의미가 없으니 멈추면 더 빨라진다 결론은 브렉을 쓰자
+        }
+
 
         if(isPrime)
             System.out.println(number + "은(는) 소수!");
@@ -22,6 +24,31 @@ isPrime = false; // 위 트루가 유지되면 소수인거고 한번이라도 �
             System.out.println(number + "은(는) 소수가 아닙니다!");
     }
 }
+
+//import java.util.Scanner;
+//
+////v0.3 차이점 : 가독성이 좋아진 버전 int 빼고 t/f 인식하는 불린사용
+//public class ReviewDemo01 {
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//
+//        int number = sc.nextInt();
+//        boolean isPrime = true; //is는 비동사라서 참 거짓을 나타낸다 ex: he is 학생 -> 교수니까 노노
+//                for (int k = 2; k < number; k++) { // 1과 같다를 제거했으니 0이 유지되면 소수인 것
+//            if (number % k == 0)//입력된 수를 k로 나누었을 떄 나머지가 0인경우 증, 약수
+//               // cnt++; //카운트가 1일때와 자기수일때만 증가하니까 카운트가 2인 경우 소수이고 3이상이면 소수 x
+//isPrime = false; // 위 트루가 유지되면 소수인거고 한번이라도 나누어떨어지면 펄스로 바뀌는 것
+//                    //카운트는 대입과 증감연산 cnt = cnt + 1 즉 불린을 하면 대입연산만 쓰니까 가벼워진다
+//                }
+//       // if (cnt == 0) //카운트가 0이 유지되면 true
+//       // if (isPrime == true) // isPrime 변수 값이 true면으로 해석되고 더 줄일 수 있다.
+//
+//        if(isPrime)
+//            System.out.println(number + "은(는) 소수!");
+//        else
+//            System.out.println(number + "은(는) 소수가 아닙니다!");
+//    }
+//}
 
 //import java.util.Scanner;
 //
