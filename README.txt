@@ -5,5 +5,5 @@
 2주차 수업
 - GIT
 
-3주차 수업
+3주차 수업 push, pull
 - GIT HUB
